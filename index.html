@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Shop | Ecommerce MiniProject</title>
+    <!----links---->
+    <link rel="icon" type="image/x-icon" href="./IMAGES/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="./index.html"><img src="./IMAGES/logo.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul  id="MenuItems">
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <div class="shopCartAndCount">
+                            <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+                            <p class="cartCount" style="color: whitesmoke"></p>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <img src="./IMAGES/menu.png" class="menu-icon" onclick="menutoggle()">
+            <!--<a href="#" id="close"><i class="fa fa-times"></i></a>!-->
+        </div>
+
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-txt">
+        <h1>To help you appreciate<BR>The true value of a timepiece.</h1>
+        <p>A gentleman's choice of timepiece says as much about him as does his Saville Row suit.</p>
+        <a href="products.html" class="btn">Explore Now &#8594;</a>
+    </div>
+    <div class="col-txt">
+        <img src="./IMAGES/rolex watch.png">
+    </div>
+</div>
+<!---------- brands ---------->
+    <div class="brands">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-5">
+                    <img src="./IMAGES/brands/omega.png" width="60px">
+                </div>
+                <div class="col-5">
+                    <img src="./IMAGES/brands/tissot.png" width="60px">
+                </div>
+                <div class="col-5">
+                    <img src="./IMAGES/brands/Patek_Philippe_SA_logo.svg.png" width="60px">
+                </div>
+                <div class="col-5">
+                    <img src="./IMAGES/brands/rado.png" width="60px">
+                </div>
+                <div class="col-5">
+                    <img src="./IMAGES/brands/TAG Heuer.png"" width="60px">
+                </div>
+                <div class="col-5">
+                    <img src="./IMAGES/brands/rolex.png" width="60px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!---------- footer------->
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h2>Download Our App</h2>
+                    <p>Download App for Android and ios mobile phone.</p>
+                    <div class="app-logo">
+                        <a href="https://play.google.com/store/apps"><img src="./IMAGES/play-store.png"></a>
+                        <a href="https://www.apple.com/app-store/"><img src="./IMAGES/app-store.png"></a>
+                    </div>
+                    <p>Secured Payment Gateways</p>
+                    <ul>
+                        <li><i class="fa fa-paypal"></i>
+                        <li><i class="fa fa-cc-visa"></i></li>
+                        <li><i class="fa fa-cc-mastercard"></i></li>
+                        <li><i class="fa fa-cc-amex"></i></li>
+                    </ul>
+                </div>
+                    <div class="footer-col-2">
+                    
+                </div>   
+                <div class="footer-col-3">
+                    <h2>Follow us</h2>
+                    <ul>
+                        <li><a href="www.facebook.com"><i class="fa fa-facebook-square">Facebook</i></a></li>
+                        <li><a href="www.twitter.com"><i class="fa fa-twitter">Twitter</i></a></li>
+                        <li><a href="www.instagram.com"><i class="fa fa-instagram">Instagram</i></a></li>
+                        <li><a href="www.youtube.com"><i class="fa fa-youtube-play">Youtube</i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2022 - Secret Shop Weebies 14P</p>
+        </div>
+    </div>
+
+<!----javascript---->
+
+<script src="script.js"></script>
+<script>
+    const cartSumItem = document.querySelector('.cartCount');
+    console.log(cartSumItem);
+    cart = JSON.parse(localStorage.getItem("shoppingCart"));
+        if (cart === null) {
+            cart = []
+        }
+    const displayCountInCart = () => {
+    
+    total = 0;
+    
+    for (let i = 0; i < cart.length; i++) {
+        total += cart[i].count;
+
+    }
+    
+    cartSumItem.textContent = total;
+
+    }
+    displayCountInCart();
+    displayCart();
+    </script>
+
+ 
+
+
+</body>
+</html> 
