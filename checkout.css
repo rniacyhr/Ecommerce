@@ -67,28 +67,77 @@
   }
   
   .btn:hover {
-    background-color: #45a049;
+    background: rgb(94, 102, 103);
+    color: #000;
   }
-  
-  a {
-    color: #2196F3;
-  }
-  
   hr {
     border: 1px solid lightgrey;
   }
   
-  span.price {
-    float: right;
-    color: grey;
-  }
   
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
   @media (max-width: 800px) {
-    .row {
+    #row {
       flex-direction: column-reverse;
     }
-    .col-25 {
-      margin-bottom: 20px;
-    }
   }
+  /*------------media query for menu---------------*/
+
+@media only screen and (max-width: 800px){
+    
+    nav ul{
+        position:absolute;
+        top: 70px;
+        right:0;
+        background: linear-gradient(#000,rgb(94, 102, 103));
+        width:40%;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    nav ul li a{
+        color:#fff;
+
+    }
+    .menu-icon{
+        display: block;
+        cursor: pointer;
+    }
+    #close{
+        position: absolute;
+        top: 0px;
+        right: 120px;
+        color: #e2e9e1;
+        font-size: 24px;
+    }
+}
+
+
+/*------------media query for less 600 screen size----*/
+
+@media only screen and (max-width: 600px){
+    .row{
+        text-align: center;
+    }
+    .col-5{
+        flex-basis: 100%;
+    }
+    .footer-col-1, .footer-col-2, .footer-col-3{
+        text-align: center;
+    }
+    .single-prod .row{
+        text-align: left;
+    }
+    .single-prod .col-2{
+        padding: 20px 0;
+    }
+    .single-prod h1{
+        font-size: 26px;
+        line-height: 22px;
+    }
+}

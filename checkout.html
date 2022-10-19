@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | Secret Shop</title>
-    <link rel="icon" href="./IMAGES/secretshop logo.png">
+    <title>Check Out | Secret Shop</title>
+    <link rel="icon" href="./IMAGES/logo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" href="checkout.css">
-
 </head>
 <body>
     <div class="header">
@@ -28,11 +27,11 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Shop</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a class="active" href="contact.html">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li>
                         <div class="shopCartAndCount">
-                            <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
-                            <p class="cartCount" id="count-cart" style="color: whitesmoke"></p>
+                            <a class="active" href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+                            <p class="cartCount" id="count-cart"style="color: whitesmoke"></p>
                         </div>
                     </li>
                 </ul>
@@ -42,7 +41,6 @@
     </div>
    </div>
 <br>
-
 <div class="row" id="row">
     <div class="col-75" id="#second">
       <div class="container" id="box">
@@ -55,22 +53,22 @@
               <hr>
               <br>
               <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-              <input type="text" id="fname" name="firstname" placeholder="Juan Dela Cruz">
+              <input type="text" id="fname" name="firstname" placeholder="Juan Dela Cruz" required>
               <label for="email"><i class="fa fa-envelope"></i> Email</label>
-              <input type="text" id="email" name="email" placeholder="juan@example.com">
-              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-              <input type="text" id="adr" name="address" placeholder="777 Gold St">
+              <input type="text" id="email" name="email" placeholder="juan@example.com" required>
+              <label for="adr"><i class="fa fa-address-card-o" required></i> Address</label>
+              <input type="text" id="adr" name="address" placeholder="777 Gold St" required>
               <label for="city"><i class="fa fa-institution"></i> City</label>
-              <input type="text" id="city" name="city" placeholder="Mandaluyong">
+              <input type="text" id="city" name="city" placeholder="Mandaluyong" required>
   
               <div class="row">
                 <div class="col-50" id="first">
                   <label for="state">Province</label>
-                  <input type="text" id="state" name="state" placeholder="NCR">
+                  <input type="text" id="state" name="state" placeholder="NCR" required>
                 </div>
                 <div class="col-50" id="first">
                   <label for="zip">Zip</label>
-                  <input type="text" id="zip" name="zip" placeholder="1856">
+                  <input type="text" id="zip" name="zip" placeholder="1856" required>
                 </div>
               </div>
             </div>
@@ -87,19 +85,19 @@
                 <i class="fa fa-cc-paypal" style="color:navy;"></i>
               </div>
               <label for="cname">Name on Card</label>
-              <input type="text" id="cname" name="cardname" placeholder="Juan Dela Cruz">
+              <input type="text" id="cname" name="cardname" placeholder="Juan Dela Cruz" required>
               <label for="ccnum">Credit card number</label>
-              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
               <label for="expmonth">Exp Month</label>
-              <input type="text" id="expmonth" name="expmonth" placeholder="September">
+              <input type="text" id="expmonth" name="expmonth" placeholder="September" required>
               <div class="row">
                 <div class="col-50" id="first">
                   <label for="expyear">Exp Year</label>
-                  <input type="text" id="expyear" name="expyear" placeholder="2018">
+                  <input type="text" id="expyear" name="expyear" placeholder="2018" required>
                 </div>
                 <div class="col-50" id="first">
                   <label for="cvv">CVV</label>
-                  <input type="text" id="cvv" name="cvv" placeholder="352">
+                  <input type="text" id="cvv" name="cvv" placeholder="352" required>
                 </div>
               </div>
             </div>
@@ -152,4 +150,69 @@
     </div>
 </div>
 </body>
+<script src="script.js"></script>
+
+<script src="ShoppingCart.js"></script>
+<script>
+    $(".add-to-cart").click(function(event){
+        event.preventDefault();
+        //console.log(event.target.dataset.dataName);
+        var name = $(this).attr("data-name");
+        var price = Number($(this).attr("data-price"));
+        var img = $(this).attr("data-src");
+        shoppingCart.addItemToCart(name, price, img, 1);
+        // console.log(name, price)
+        displayCart();
+    });
+    $("#clear-cart").click(function(event){
+        shoppingCart.clearCart();
+        displayCart();
+    });
+    function displayCart() {
+        var cartArray = shoppingCart.listCart();
+        // console.log(cartArray);
+        var output = "";
+        for (var i in cartArray) {
+            output += "<tr>"+
+                "<td><button class='delete-item' data-name='"
+                +cartArray[i].name+"'>remove</button></td>"+
+                "<td><img src=\""+cartArray[i].img+"\"></td>"+
+                "<td>"+cartArray[i].name+"</td>"+
+                "<td>PHP"+cartArray[i].price+"</td>"+
+                "<td><button class='plus-item' data-name='"
+                +cartArray[i].name+"'>+</button>"
+                +cartArray[i].count
+                +" <button class='subtract-item' data-name='"
+                +cartArray[i].name+"'>-</button></td>"+
+                "<td>PHP"+cartArray[i].total+"</td>"+
+                "</tr>";
+        }
+        $("#show-cart").html(output);
+        $("#count-cart").html( shoppingCart.countCart() );
+        $("#totalsub-cart").html( shoppingCart.totalCart() );
+        $("#total-cart").html( shoppingCart.totalCart() );
+    }
+    $("#show-cart").on("click", ".delete-item", function(event){
+        var name = $(this).attr("data-name");
+        shoppingCart.removeItemFromCartAll(name);
+        displayCart();
+    });
+    $("#show-cart").on("click", ".subtract-item", function(event){
+        var name = $(this).attr("data-name");
+        shoppingCart.removeItemFromCart(name);
+        displayCart();
+    });
+    $("#show-cart").on("click", ".plus-item", function(event){
+        var name = $(this).attr("data-name");
+        shoppingCart.addItemToCart(name, 0, 0, 1);
+        displayCart();
+    });
+    $("#show-cart").on("change", ".item-count", function(event){
+        var name = $(this).attr("data-name");
+        var count = Number($(this).val());
+        shoppingCart.setCountForItem(name, count);
+        displayCart();
+    });
+    displayCart();
+</script>
 </html>
