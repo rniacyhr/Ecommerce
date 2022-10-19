@@ -480,3 +480,12 @@ ul{
     right: -50%;
     top: -30%;
 }
+
+.normal {
+    display: inline-block;
+    background-color: #ff523b;
+    color:#fff;
+    padding: 8px 30px;
+    margin: 20px;
+    border-radius: 30px;
+}
