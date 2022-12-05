@@ -42,27 +42,41 @@
     </div>
    </div>
 <br>
-<!-------cart items details----->
+<!-------contact form----->
 
 <h3>Contact Form</h3>
 
-<div class="container" id="contactForm">
-  <form action="/action_page.php">
-    <label for="fname">First Name</label>
-    <br>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-    <br>
-    <label for="lname">Last Name</label>
-    <br>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-    <br>
-    <label for="subject">Message</label>
-    <br>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
-    <br>
-    <input type="submit" value="Submit">
-  </form>
+<div class="row">
+    <!--<div class="container">-->
+        <div class="column-page1">
+            <form action="/action_page.php">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="jap">Japan</option>
+                <option value="ph">Philippines</option>
+                <option value="usa">United States of America</option>
+            </select>
+
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit">
+            </form>
+        </div>
+    
+        <div class="column-page1">
+            <img src="./IMAGES/logo-orig.png">
+                        
+        </div>
 </div>
+
+    
 <br>
 <!---------- footer------->
 
@@ -88,13 +102,15 @@
                     
                 </div>   
                 <div class="footer-col-3">
-                    <h2>Follow us</h2>
-                    <ul>
-                        <li><a href="www.facebook.com">Facebook</a></li>
-                        <li><a href="www.twitter.com">Twitter</a></li>
-                        <li><a href="www.instagram.com">Instagram</a></li>
-                        <li><a href="www.youtube.com">Youtube</a></li>
-                    </ul>
+                    <h1>Follow us</h1>
+                    <div class="socmed">
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #3b5998;"  href="https://www.facebook.com"  role="button"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #55acee;"  href="https://www.twitter.com"  role="button"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #ac2bac;"  href="https://www.instagram.com"  role="button"><i class="fa fa-instagram fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #c61118;"  href="https://www.pinterest.com"  role="button"><i class="fa fa-pinterest-p fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #25d366;"  href="https://www.whatsapp.com"  role="button"><i class="fa fa-whatsapp fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #ed302f;"  href="https://www.youtube.com"  role="button"><i class="fa fa-youtube-play fa-lg"></i></a>
+                    </div>  
                 </div>
             </div>
             <hr>

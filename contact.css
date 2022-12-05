@@ -2,7 +2,7 @@
 * {box-sizing: border-box;} */
 
 input[type=text], select, textarea {
-  width: 50%;
+  width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -26,8 +26,15 @@ input[type=submit]:hover {
 }
 h3 {
   text-align: center;
+ 
 }
-
-#contactForm {
-  text-align: center;
+.column-page1 {
+  padding: 20px;
+  width: 40%;
+}
+.column-page1 img {
+  max-width: 100%;
+  width: 75%;
+  padding: 20px 0;
+  margin: 0 0 0 20px;
 }

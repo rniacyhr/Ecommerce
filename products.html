@@ -40,18 +40,18 @@
     </div>
    </div>
 <!--featured products-->
-   <div class="small-container">
+   <!-- <div class="small-container">
 
         <div class="row row-2">
             <h2>All Brands</h2>
-<!--             <select>
+            <select>
                 <option>Default Sorting</option>
                 <option>Sort by price</option>
                 <option>Sort by popularity</option>
                 <option>Sort by rating</option>
                 <option>Sort by sale</option>
-            </select> -->
-        </div>
+            </select>
+        </div> -->
 <!---products---->
         <div class="row">
             <div class="col-4">
@@ -224,14 +224,18 @@
             </div>
         </div>
 
-        <div class="page-btn">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>&#8594;</span>
-
+        <div class="container">
+            <div class="pagination">
+                <button class="btn1" onclick="backBtn()"><img src="./IMAGES/arrow.png"></button>
+                    <ul>
+                        <li class="link active" value="1" onclick="activeLink()">1</li>
+                        <li class="link" value="2" onclick="activeLink()">2</li>
+                        <li class="link" value="3" onclick="activeLink()">3</li>
+                        <li class="link" value="4" onclick="activeLink()">4</li>
+                        <li class="link" value="5" onclick="activeLink()">5</li>
+                    </ul>
+                <button class="btn2" onclick="nextBtn()"><img src="./IMAGES/arrow.png"></button>
+            </div>
         </div>
    </div>
 
@@ -259,13 +263,15 @@
                    
                 </div>   
                 <div class="footer-col-3">
-                    <h2>Follow us</h2>
-                    <ul>
-                        <li><a href="www.facebook.com">Facebook</a></li>
-                        <li><a href="www.twitter.com">Twitter</a></li>
-                        <li><a href="www.instagram.com">Instagram</a></li>
-                        <li><a href="www.youtube.com">Youtube</a></li>
-                    </ul>
+                    <h1>Follow us</h1>
+                    <div class="socmed">
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #3b5998;"  href="https://www.facebook.com"  role="button"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #55acee;"  href="https://www.twitter.com"  role="button"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #ac2bac;"  href="https://www.instagram.com"  role="button"><i class="fa fa-instagram fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #c61118;"  href="https://www.pinterest.com"  role="button"><i class="fa fa-pinterest-p fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #25d366;"  href="https://www.whatsapp.com"  role="button"><i class="fa fa-whatsapp fa-lg"></i></a>
+                        <a class="btn btn-primary btn-lg btn-floating"  style="background-color: #ed302f;"  href="https://www.youtube.com"  role="button"><i class="fa fa-youtube-play fa-lg"></i></a>
+                    </div>    
                 </div>
             </div>
             <hr>
@@ -278,6 +284,41 @@
 <script src="script.js"></script>
 
 <script src="ShoppingCart.js"></script>
+
+<!--Pagination-->
+<script>
+    let link = document.getElementsByClassName("link");
+    
+    let currentValue = 1;
+
+    function activeLink(){
+        for(l of link){
+            l.classList.remove("active");
+        }
+        event.target.classList.add("active");
+        currentValue = event.target.value;
+    }
+
+    function backBtn(){
+         if(currentValue > 1){
+            for(l of link){
+            l.classList.remove("active");    
+            }
+            currentValue--;
+            link[currentValue-1].classList.add("active");
+         }
+    }
+
+    function nextBtn(){
+         if(currentValue < 5){
+            for(l of link){
+            l.classList.remove("active");    
+            }
+            currentValue++;
+            link[currentValue-1].classList.add("active");
+         }
+    }
+</script>
 
 <script>
     $(".add-to-cart").click(function(event){
